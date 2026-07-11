@@ -112,7 +112,7 @@
             display: block;
         }
         
-        /* Local Comment Section Styling */
+        /* Global Live Comment Container Wrapper */
         .custom-comments {
             max-width: 800px;
             width: 90%;
@@ -128,119 +128,6 @@
             border-bottom: 1px solid #333;
             padding-bottom: 10px;
         }
-        .comment-form {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        .comment-form input, .comment-form textarea {
-            background-color: #121212;
-            border: 1px solid #333;
-            color: white;
-            padding: 10px;
-            border-radius: 4px;
-            font-family: Arial, sans-serif;
-        }
-        .comment-form textarea {
-            resize: vertical;
-            height: 80px;
-        }
-        .comment-form button {
-            align-self: flex-start;
-        }
-        .comments-list {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            max-height: 500px;
-            overflow-y: auto;
-        }
-        .single-comment {
-            background-color: #222;
-            padding: 12px;
-            border-radius: 6px;
-            border-left: 3px solid #ff4500;
-        }
-        .comment-header {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.85rem;
-            color: #ff4500;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        .comment-time {
-            color: #888;
-            font-weight: normal;
-        }
-        
-        .comment-actions {
-            margin-top: 10px;
-            display: flex;
-            gap: 15px;
-            font-size: 0.85rem;
-        }
-        .action-btn {
-            background: none;
-            border: none;
-            color: #aaa;
-            cursor: pointer;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-        .action-btn:hover {
-            color: #ff4500;
-        }
-        .heart-btn.liked {
-            color: #ff4500;
-        }
-        
-        .reply-form-container {
-            margin-top: 10px;
-            padding-left: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        .reply-form-container input, .reply-form-container textarea {
-            background-color: #121212;
-            border: 1px solid #444;
-            color: white;
-            padding: 6px;
-            border-radius: 4px;
-            font-size: 0.85rem;
-        }
-        .reply-form-container textarea {
-            height: 50px;
-            resize: none;
-        }
-        
-        .replies-container {
-            margin-top: 10px;
-            padding-left: 20px;
-            border-left: 2px dashed #444;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        .single-reply {
-            background-color: #2a2a2a;
-            padding: 8px 12px;
-            border-radius: 4px;
-            font-size: 0.9rem;
-        }
-        .reply-header {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.75rem;
-            color: #ff4500;
-            font-weight: bold;
-            margin-bottom: 4px;
-        }
 
         footer {
             margin: 40px 0;
@@ -255,13 +142,12 @@
         <h1>Prince Of Darkness</h1>
         <h2 id="current-view-title">Chapter Selection</h2>
         <div class="socials-bar" onclick="event.stopPropagation();">
-            <a href="https://instagram.com/YOUR_USERNAME" target="_blank">Instagram</a>
-            <a href="https://facebook.com/YOUR_PAGE" target="_blank">Facebook</a>
-            <a href="mailto:youremail@example.com">Email Me</a>
+            <a href="https://instagram.com/crawl3r_m4n" target="_blank">Instagram</a>
+            <a href="https://www.facebook.com/yous.sef.568030" target="_blank">Facebook</a>
+            <a href="mailto:fadeblackbird.29@gmail.com">Email Me</a>
         </div>
     </header>
 
-    <!-- 1. CHAPTER MENU VIEW -->
     <div id="menu-view" class="chapter-menu">
         <a href="#" class="chapter-link" onclick="openChapter('chapter1', 'Chapter 1: oneshot part 1')">
             <div>
@@ -275,65 +161,57 @@
         </a>
     </div>
 
-    <!-- 2. MANGA READER VIEW -->
     <div id="reader-view" class="hidden">
         <div class="navigation">
             <button class="btn" onclick="showMenu()">Back to Menu</button>
         </div>
 
-        <!-- Chapter 1 Pages -->
         <div id="chapter1" class="manga-container chapter-content hidden">
-            <img src="https://i.ibb.co/CpT5ZDKt/00.png" alt="00" border="0"></a> 
-            <img src="https://i.ibb.co/cXQRFSXq/01.png" alt="01" border="0"></a>
-            <img src="https://i.ibb.co/JwNphygS/02.png" alt="02" border="0"></a>
-            <img src="https://i.ibb.co/Xr6hW0pd/03.png" alt="03" border="0"></a>
-            <img src="https://i.ibb.co/zV9MVVXx/04.png" alt="04" border="0"></a>
-            <img src="https://i.ibb.co/GQqdnRFB/05.png" alt="05" border="0"></a>
-            <img src="https://i.ibb.co/ynX6Fwj0/06.png" alt="06" border="0"></a>
-            <img src="https://i.ibb.co/20BW8Bgj/07.png" alt="07" border="0"></a>
-            <img src="https://i.ibb.co/gLtRH4vC/08.png" alt="08" border="0"></a>
-            <img src="https://i.ibb.co/xtSzV4yR/09.png" alt="09" border="0"></a>
-            <img src="https://i.ibb.co/gL2hmKwJ/10.png" alt="10" border="0"></a>
-            <img src="https://i.ibb.co/9mPHKDLX/11.png" alt="11" border="0"></a>
-            <img src="https://i.ibb.co/gb96tGsG/12.png" alt="12" border="0"></a>
-            <img src="https://i.ibb.co/678NzQvy/13.png" alt="13" border="0"></a>
-            <img src="https://i.ibb.co/PztHJ95H/14.png" alt="14" border="0"></a>
-            <img src="https://i.ibb.co/fYV2SL2t/15.png" alt="15" border="0"></a>
-            <img src="https://i.ibb.co/nsmvmN6j/16.png" alt="16" border="0"></a>
-            <img src="https://i.ibb.co/xqM8TVpz/17.png" alt="17" border="0"></a>
-            <img src="https://i.ibb.co/dsGgz6dJ/18.png" alt="18" border="0"></a>
-            <img src="https://i.ibb.co/7d57K0tq/19.png" alt="19" border="0"></a>
-            <img src="https://i.ibb.co/chTYrgBy/20.png" alt="20" border="0"></a>
-            <img src="https://i.ibb.co/HT1347rh/21.png" alt="21" border="0"></a>
-            <img src="https://i.ibb.co/1GbdRM63/22.png" alt="22" border="0"></a>
-            <img src="https://i.ibb.co/0pX4P3nv/23.png" alt="23" border="0"></a>
-            <img src="https://i.ibb.co/rfzPFXL9/24.png" alt="24" border="0"></a>
-            <img src="https://i.ibb.co/4nC2kSPs/25.png" alt="25" border="0"></a>
-            <img src="https://i.ibb.co/My5v0ykS/26.png" alt="26" border="0"></a>
-            <img src="https://i.ibb.co/TqtY7HD8/27.png" alt="27" border="0"></a>
-            <img src="https://i.ibb.co/nWjMbZ7/28.png" alt="28" border="0"></a>
-            <img src="https://i.ibb.co/d03RNGMM/29.png" alt="29" border="0"></a>
-            <img src="https://i.ibb.co/0y9xxLWp/30.png" alt="30" border="0"></a>
-            <img src="https://i.ibb.co/Pv0S62t8/31.png" alt="31" border="0"></a>
-            <img src="https://i.ibb.co/Rk3m6zNx/32.png" alt="32" border="0"></a>
-            <img src="https://i.ibb.co/kg01r7zS/33.png" alt="33" border="0"></a>
-            <img src="https://i.ibb.co/5gj1tRzL/34.png" alt="34" border="0"></a>
-            <img src="https://i.ibb.co/pjz2Hh2t/35.png" alt="35" border="0"></a>
+            <img src="https://i.ibb.co/CpT5ZDKt/00.png" alt="00"> 
+            <img src="https://i.ibb.co/cXQRFSXq/01.png" alt="01">
+            <img src="https://i.ibb.co/JwNphygS/02.png" alt="02">
+            <img src="https://i.ibb.co/Xr6hW0pd/03.png" alt="03">
+            <img src="https://i.ibb.co/zV9MVVXx/04.png" alt="04">
+            <img src="https://i.ibb.co/GQqdnRFB/05.png" alt="05">
+            <img src="https://i.ibb.co/ynX6Fwj0/06.png" alt="06">
+            <img src="https://i.ibb.co/20BW8Bgj/07.png" alt="07">
+            <img src="https://i.ibb.co/gLtRH4vC/08.png" alt="08">
+            <img src="https://i.ibb.co/xtSzV4yR/09.png" alt="09">
+            <img src="https://i.ibb.co/gL2hmKwJ/10.png" alt="10">
+            <img src="https://i.ibb.co/9mPHKDLX/11.png" alt="11">
+            <img src="https://i.ibb.co/gb96tGsG/12.png" alt="12">
+            <img src="https://i.ibb.co/678NzQvy/13.png" alt="13">
+            <img src="https://i.ibb.co/PztHJ95H/14.png" alt="14">
+            <img src="https://i.ibb.co/fYV2SL2t/15.png" alt="15">
+            <img src="https://i.ibb.co/nsmvmN6j/16.png" alt="16">
+            <img src="https://i.ibb.co/xqM8TVpz/17.png" alt="17">
+            <img src="https://i.ibb.co/dsGgz6dJ/18.png" alt="18">
+            <img src="https://i.ibb.co/7d57K0tq/19.png" alt="19">
+            <img src="https://i.ibb.co/chTYrgBy/20.png" alt="20">
+            <img src="https://i.ibb.co/HT1347rh/21.png" alt="21">
+            <img src="https://i.ibb.co/1GbdRM63/22.png" alt="22">
+            <img src="https://i.ibb.co/0pX4P3nv/23.png" alt="23">
+            <img src="https://i.ibb.co/rfzPFXL9/24.png" alt="24">
+            <img src="https://i.ibb.co/4nC2kSPs/25.png" alt="25">
+            <img src="https://i.ibb.co/My5v0ykS/26.png" alt="26">
+            <img src="https://i.ibb.co/TqtY7HD8/27.png" alt="27">
+            <img src="https://i.ibb.co/nWjMbZ7/28.png" alt="28">
+            <img src="https://i.ibb.co/d03RNGMM/29.png" alt="29">
+            <img src="https://i.ibb.co/0y9xxLWp/30.png" alt="30">
+            <img src="https://i.ibb.co/Pv0S62t8/31.png" alt="31">
+            <img src="https://i.ibb.co/Rk3m6zNx/32.png" alt="32">
+            <img src="https://i.ibb.co/kg01r7zS/33.png" alt="33">
+            <img src="https://i.ibb.co/5gj1tRzL/34.png" alt="34">
+            <img src="https://i.ibb.co/pjz2Hh2t/35.png" alt="35">
         </div>
 
         <div class="navigation">
             <button class="btn" onclick="showMenu()">Back to Menu</button>
         </div>
 
-        <!-- COMMENT SECTION -->
         <div class="custom-comments">
             <h3>Comments</h3>
-            <div class="comment-form">
-                <input type="text" id="comment-name" placeholder="Your Nickname (Anonymous)">
-                <textarea id="comment-text" placeholder="Leave a comment..." required></textarea>
-                <button class="btn" onclick="submitComment()">Post Comment</button>
-            </div>
-            <div id="comments-list" class="comments-list"></div>
+            <div id="utterances-comment-box"></div>
         </div>
     </div>
 
@@ -342,18 +220,19 @@
     </footer>
 
     <script>
-        let activeChapterId = 'main-page';
+        // --- CONFIGURE YOUR DATABASE AND PATH NAMESPACES ---
+        const SITE_NAMESPACE = "prince_of_darkness_manga"; 
         
-        // Change "prince_of_darkness_manga" to any unique name you prefer for your project database namespace
-        const SITE_NAMESPACE = "prince_of_darkness_manga";
+        // IMPORTANT: Swap this out for your real GitHub repository identifier!
+        // Format: "your-github-username/your-repository-name"
+        const GITHUB_REPO = "fadeblackbird29-png/PrinceOfDarkness"; 
 
-        // Initialize and display existing view counts when user lands on home page
+        // Load visual counter totals when home menu builds
         document.addEventListener("DOMContentLoaded", () => {
             fetchViews('chapter1');
         });
 
         function openChapter(chapterId, chapterTitle) {
-            activeChapterId = chapterId;
             document.getElementById('menu-view').classList.add('hidden');
             document.getElementById('reader-view').classList.remove('hidden');
             
@@ -364,36 +243,36 @@
             document.getElementById('current-view-title').innerText = chapterTitle;
             
             window.scrollTo({top: 0, behavior: 'smooth'});
-            loadComments();
+
             incrementViews(chapterId);
+            loadGlobalComments(chapterTitle);
         }
 
         function showMenu() {
-            activeChapterId = 'main-page';
             document.getElementById('reader-view').classList.add('hidden');
             document.getElementById('menu-view').classList.remove('hidden');
             document.getElementById('current-view-title').innerText = "Chapter Selection";
-            fetchViews('chapter1'); // Refresh homepage display view numbers
+            fetchViews('chapter1'); 
         }
 
-        // --- Live Global View Counter Logic ---
+        // --- Working Native JavaScript View Counter Engine ---
         function incrementViews(chapterId) {
-            fetch(`https://api.counterapi.dev/v1/projects/${SITE_NAMESPACE}/counters/${chapterId}/up`)
+            fetch(`https://api.moeounter.org/hit/${SITE_NAMESPACE}/${chapterId}`)
                 .then(res => res.json())
                 .then(data => {
-                    if(data && data.value) {
-                        document.getElementById(`${chapterId}-views-display`).innerText = `👁️ ${data.value} views`;
+                    if(data && data.views) {
+                        document.getElementById(`${chapterId}-views-display`).innerText = `👁️ ${data.views} views`;
                     }
                 })
-                .catch(err => console.log("Counter API Offline or Restricted Localy."));
+                .catch(err => console.log("Counter handling error."));
         }
 
         function fetchViews(chapterId) {
-            fetch(`https://api.counterapi.dev/v1/projects/${SITE_NAMESPACE}/counters/${chapterId}`)
+            fetch(`https://api.moeounter.org/get/${SITE_NAMESPACE}/${chapterId}`)
                 .then(res => res.json())
                 .then(data => {
-                    if(data && data.value) {
-                        document.getElementById(`${chapterId}-views-display`).innerText = `👁️ ${data.value} views`;
+                    if(data && data.views) {
+                        document.getElementById(`${chapterId}-views-display`).innerText = `👁️ ${data.views} views`;
                     } else {
                         document.getElementById(`${chapterId}-views-display`).innerText = `👁️ 0 views`;
                     }
@@ -403,159 +282,20 @@
                 });
         }
 
-        // --- Local Comment System Logic ---
-        function submitComment() {
-            const nameInput = document.getElementById('comment-name');
-            const textInput = document.getElementById('comment-text');
-            const name = nameInput.value.trim() || "Anonymous";
-            const text = textInput.value.trim();
+        // --- Global Serverless Comment Thread Loader ---
+        function loadGlobalComments(chapterTitle) {
+            const container = document.getElementById('utterances-comment-box');
+            container.innerHTML = ''; 
             
-            if (!text) return;
-
-            const newComment = {
-                id: 'c_' + Date.now() + Math.random().toString(36).substr(2, 4),
-                name: name,
-                text: text,
-                date: new Date().toLocaleDateString(),
-                likes: 0,
-                replies: []
-            };
-
-            let allComments = JSON.parse(localStorage.getItem('manga_comments_v2')) || {};
-            if (!allComments[activeChapterId]) {
-                allComments[activeChapterId] = [];
-            }
-
-            allComments[activeChapterId].unshift(newComment);
-            localStorage.setItem('manga_comments_v2', JSON.stringify(allComments));
-
-            textInput.value = '';
-            nameInput.value = '';
-            loadComments();
-        }
-
-        function toggleHeart(commentId) {
-            let allComments = JSON.parse(localStorage.getItem('manga_comments_v2')) || {};
-            let chapterComments = allComments[activeChapterId] || [];
-            let likedComments = JSON.parse(localStorage.getItem('liked_comments')) || [];
-
-            chapterComments.forEach(comment => {
-                if (comment.id === commentId) {
-                    if (likedComments.includes(commentId)) {
-                        comment.likes = Math.max(0, comment.likes - 1);
-                        likedComments = likedComments.filter(id => id !== commentId);
-                    } else {
-                        comment.likes += 1;
-                        likedComments.push(commentId);
-                    }
-                }
-            });
-
-            allComments[activeChapterId] = chapterComments;
-            localStorage.setItem('manga_comments_v2', JSON.stringify(allComments));
-            localStorage.setItem('liked_comments', JSON.stringify(likedComments));
-            loadComments();
-        }
-
-        function toggleReplyForm(commentId) {
-            const formElement = document.getElementById(`reply-form-${commentId}`);
-            formElement.classList.toggle('hidden');
-        }
-
-        function submitReply(commentId) {
-            const nameInput = document.getElementById(`reply-name-${commentId}`);
-            const textInput = document.getElementById(`reply-text-${commentId}`);
-            const name = nameInput.value.trim() || "Anonymous";
-            const text = textInput.value.trim();
+            const script = document.createElement('script');
+            script.src = 'https://utteranc.es/client.js';
+            script.setAttribute('repo', GITHUB_REPO);
+            script.setAttribute('issue-term', chapterTitle); 
+            script.setAttribute('theme', 'github-dark');
+            script.setAttribute('crossorigin', 'anonymous');
+            script.async = true;
             
-            if (!text) return;
-
-            const newReply = {
-                name: name,
-                text: text,
-                date: new Date().toLocaleDateString()
-            };
-
-            let allComments = JSON.parse(localStorage.getItem('manga_comments_v2')) || {};
-            let chapterComments = allComments[activeChapterId] || [];
-
-            chapterComments.forEach(comment => {
-                if (comment.id === commentId) {
-                    if(!comment.replies) comment.replies = [];
-                    comment.replies.push(newReply);
-                }
-            });
-
-            allComments[activeChapterId] = chapterComments;
-            localStorage.setItem('manga_comments_v2', JSON.stringify(allComments));
-            loadComments();
-        }
-
-        function loadComments() {
-            const listContainer = document.getElementById('comments-list');
-            listContainer.innerHTML = '';
-
-            let allComments = JSON.parse(localStorage.getItem('manga_comments_v2')) || {};
-            let chapterComments = allComments[activeChapterId] || [];
-            let likedComments = JSON.parse(localStorage.getItem('liked_comments')) || [];
-
-            if (chapterComments.length === 0) {
-                listContainer.innerHTML = '<p style="color: #666; font-style: italic;">No comments yet. Be the first!</p>';
-                return;
-            }
-
-            chapterComments.forEach(comment => {
-                const commentDiv = document.createElement('div');
-                commentDiv.className = 'single-comment';
-                const isLiked = likedComments.includes(comment.id) ? 'liked' : '';
-                
-                let repliesHtml = '';
-                if(comment.replies && comment.replies.length > 0) {
-                    repliesHtml = `<div class="replies-container">`;
-                    comment.replies.forEach(reply => {
-                        repliesHtml += `
-                            <div class="single-reply">
-                                <div class="reply-header">
-                                    <span>${escapeHTML(reply.name)}</span>
-                                    <span class="comment-time">${reply.date}</span>
-                                </div>
-                                <div>${escapeHTML(reply.text)}</div>
-                            </div>
-                        `;
-                    });
-                    repliesHtml += `</div>`;
-                }
-
-                commentDiv.innerHTML = `
-                    <div class="comment-header">
-                        <span>${escapeHTML(comment.name)}</span>
-                        <span class="comment-time">${comment.date}</span>
-                    </div>
-                    <div>${escapeHTML(comment.text)}</div>
-                    
-                    <div class="comment-actions">
-                        <button class="action-btn heart-btn ${isLiked}" onclick="toggleHeart('${comment.id}')">
-                            ❤️ <span>${comment.likes}</span>
-                        </button>
-                        <button class="action-btn" onclick="toggleReplyForm('${comment.id}')">
-                            💬 Reply
-                        </button>
-                    </div>
-
-                    <div id="reply-form-${comment.id}" class="reply-form-container hidden">
-                        <input type="text" id="reply-name-${comment.id}" placeholder="Your Nickname">
-                        <textarea id="reply-text-${comment.id}" placeholder="Type a reply..."></textarea>
-                        <button class="btn" style="padding: 5px 10px; font-size: 0.8rem;" onclick="submitReply('${comment.id}')">Submit Reply</button>
-                    </div>
-
-                    ${repliesHtml}
-                `;
-                listContainer.appendChild(commentDiv);
-            });
-        }
-
-        function escapeHTML(str) {
-            return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            container.appendChild(script);
         }
     </script>
 </body>
