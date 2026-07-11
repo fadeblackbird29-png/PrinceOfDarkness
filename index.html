@@ -67,12 +67,15 @@
             border-color: #ff4500;
             transform: translateY(-2px);
         }
-        .chapter-date {
+        .chapter-metadata {
+            display: flex;
+            gap: 15px;
+            margin-top: 6px;
+        }
+        .chapter-date, .chapter-views {
             font-size: 0.85rem;
             color: #aaa;
             font-weight: normal;
-            display: block;
-            margin-top: 4px;
         }
 
         .hidden {
@@ -109,7 +112,7 @@
             display: block;
         }
         
-        /* Local Comment Section with Interactive Elements */
+        /* Local Comment Section Styling */
         .custom-comments {
             max-width: 800px;
             width: 90%;
@@ -172,7 +175,6 @@
             font-weight: normal;
         }
         
-        /* Interaction Row Styling */
         .comment-actions {
             margin-top: 10px;
             display: flex;
@@ -197,7 +199,6 @@
             color: #ff4500;
         }
         
-        /* Nested Reply Form & Thread Elements */
         .reply-form-container {
             margin-top: 10px;
             padding-left: 20px;
@@ -217,6 +218,7 @@
             height: 50px;
             resize: none;
         }
+        
         .replies-container {
             margin-top: 10px;
             padding-left: 20px;
@@ -253,10 +255,9 @@
         <h1>Prince Of Darkness</h1>
         <h2 id="current-view-title">Chapter Selection</h2>
         <div class="socials-bar" onclick="event.stopPropagation();">
-            <a href="https://www.instagram.com/crawl3r_m4n/" target="_blank">Instagram</a>
-            <a href="https://www.facebook.com/yous.sef.568030" target="_blank">Facebook</a>
-            <a href="mailto:fadeblackbird.29@gmail.com">Email Me</a>
-			<a href="https://uk.pinterest.com/fadeblackbird29/" target="_blank">Pinterest</a>
+            <a href="https://instagram.com/YOUR_USERNAME" target="_blank">Instagram</a>
+            <a href="https://facebook.com/YOUR_PAGE" target="_blank">Facebook</a>
+            <a href="mailto:youremail@example.com">Email Me</a>
         </div>
     </header>
 
@@ -265,7 +266,10 @@
         <a href="#" class="chapter-link" onclick="openChapter('chapter1', 'Chapter 1: oneshot part 1')">
             <div>
                 <span>Chapter 1: oneshot part 1</span>
-                <span class="chapter-date">Uploaded: July 11, 2026</span>
+                <div class="chapter-metadata">
+                    <span class="chapter-date">Uploaded: July 11, 2026</span>
+                    <span class="chapter-views" id="chapter1-views-display">👁️ Loading views...</span>
+                </div>
             </div>
             <span style="color: #666;">&rarr;</span>
         </a>
@@ -321,7 +325,7 @@
             <button class="btn" onclick="showMenu()">Back to Menu</button>
         </div>
 
-        <!-- PURE CODE LOCAL COMMENT SECTION -->
+        <!-- COMMENT SECTION -->
         <div class="custom-comments">
             <h3>Comments</h3>
             <div class="comment-form">
@@ -329,9 +333,7 @@
                 <textarea id="comment-text" placeholder="Leave a comment..." required></textarea>
                 <button class="btn" onclick="submitComment()">Post Comment</button>
             </div>
-            <div id="comments-list" class="comments-list">
-                <!-- Comments, Reactions, and Replies show up here -->
-            </div>
+            <div id="comments-list" class="comments-list"></div>
         </div>
     </div>
 
@@ -341,6 +343,14 @@
 
     <script>
         let activeChapterId = 'main-page';
+        
+        // Change "prince_of_darkness_manga" to any unique name you prefer for your project database namespace
+        const SITE_NAMESPACE = "prince_of_darkness_manga";
+
+        // Initialize and display existing view counts when user lands on home page
+        document.addEventListener("DOMContentLoaded", () => {
+            fetchViews('chapter1');
+        });
 
         function openChapter(chapterId, chapterTitle) {
             activeChapterId = chapterId;
@@ -355,6 +365,7 @@
             
             window.scrollTo({top: 0, behavior: 'smooth'});
             loadComments();
+            incrementViews(chapterId);
         }
 
         function showMenu() {
@@ -362,13 +373,40 @@
             document.getElementById('reader-view').classList.add('hidden');
             document.getElementById('menu-view').classList.remove('hidden');
             document.getElementById('current-view-title').innerText = "Chapter Selection";
+            fetchViews('chapter1'); // Refresh homepage display view numbers
         }
 
-        // --- Pure Local Code Comments, Replies, and Reaction Logic ---
+        // --- Live Global View Counter Logic ---
+        function incrementViews(chapterId) {
+            fetch(`https://api.counterapi.dev/v1/projects/${SITE_NAMESPACE}/counters/${chapterId}/up`)
+                .then(res => res.json())
+                .then(data => {
+                    if(data && data.value) {
+                        document.getElementById(`${chapterId}-views-display`).innerText = `👁️ ${data.value} views`;
+                    }
+                })
+                .catch(err => console.log("Counter API Offline or Restricted Localy."));
+        }
+
+        function fetchViews(chapterId) {
+            fetch(`https://api.counterapi.dev/v1/projects/${SITE_NAMESPACE}/counters/${chapterId}`)
+                .then(res => res.json())
+                .then(data => {
+                    if(data && data.value) {
+                        document.getElementById(`${chapterId}-views-display`).innerText = `👁️ ${data.value} views`;
+                    } else {
+                        document.getElementById(`${chapterId}-views-display`).innerText = `👁️ 0 views`;
+                    }
+                })
+                .catch(() => {
+                    document.getElementById(`${chapterId}-views-display`).innerText = `👁️ 0 views`;
+                });
+        }
+
+        // --- Local Comment System Logic ---
         function submitComment() {
             const nameInput = document.getElementById('comment-name');
             const textInput = document.getElementById('comment-text');
-            
             const name = nameInput.value.trim() || "Anonymous";
             const text = textInput.value.trim();
             
@@ -399,8 +437,6 @@
         function toggleHeart(commentId) {
             let allComments = JSON.parse(localStorage.getItem('manga_comments_v2')) || {};
             let chapterComments = allComments[activeChapterId] || [];
-            
-            // Track layout array configuration
             let likedComments = JSON.parse(localStorage.getItem('liked_comments')) || [];
 
             chapterComments.forEach(comment => {
@@ -423,17 +459,12 @@
 
         function toggleReplyForm(commentId) {
             const formElement = document.getElementById(`reply-form-${commentId}`);
-            if (formElement.classList.contains('hidden')) {
-                formElement.classList.remove('hidden');
-            } else {
-                formElement.classList.add('hidden');
-            }
+            formElement.classList.toggle('hidden');
         }
 
         function submitReply(commentId) {
             const nameInput = document.getElementById(`reply-name-${commentId}`);
             const textInput = document.getElementById(`reply-text-${commentId}`);
-            
             const name = nameInput.value.trim() || "Anonymous";
             const text = textInput.value.trim();
             
@@ -450,6 +481,7 @@
 
             chapterComments.forEach(comment => {
                 if (comment.id === commentId) {
+                    if(!comment.replies) comment.replies = [];
                     comment.replies.push(newReply);
                 }
             });
@@ -475,10 +507,8 @@
             chapterComments.forEach(comment => {
                 const commentDiv = document.createElement('div');
                 commentDiv.className = 'single-comment';
-                
                 const isLiked = likedComments.includes(comment.id) ? 'liked' : '';
                 
-                // Construct Nested Replies HTML
                 let repliesHtml = '';
                 if(comment.replies && comment.replies.length > 0) {
                     repliesHtml = `<div class="replies-container">`;
@@ -512,7 +542,6 @@
                         </button>
                     </div>
 
-                    <!-- Hidden Reply Input Element Form Wrapper Block -->
                     <div id="reply-form-${comment.id}" class="reply-form-container hidden">
                         <input type="text" id="reply-name-${comment.id}" placeholder="Your Nickname">
                         <textarea id="reply-text-${comment.id}" placeholder="Type a reply..."></textarea>
