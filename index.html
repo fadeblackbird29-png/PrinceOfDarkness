@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prince of Darkness - Chapter 1</title>
+    <title>Prince of Darkness - Manga Reader</title>
     <style>
         body {
             background-color: #121212;
@@ -21,6 +21,39 @@
             padding: 15px;
             text-align: center;
             border-bottom: 2px solid #333;
+            cursor: pointer;
+        }
+        
+        .chapter-menu {
+            max-width: 600px;
+            width: 90%;
+            margin: 40px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .chapter-link {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 20px;
+            text-decoration: none;
+            border-radius: 8px;
+            border: 1px solid #333;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: all 0.2s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .chapter-link:hover {
+            background-color: #ff4500;
+            border-color: #ff4500;
+            transform: translateY(-2px);
+        }
+
+        .hidden {
+            display: none !important;
         }
         .navigation {
             margin: 20px 0;
@@ -35,6 +68,7 @@
             font-weight: bold;
             text-decoration: none;
             border-radius: 5px;
+            display: inline-block;
         }
         .btn:hover {
             background-color: #e03e00;
@@ -44,13 +78,25 @@
             width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 0px; /* Traditional vertical scroll format */
+            gap: 0px;
         }
         .manga-page {
             width: 100%;
             height: auto;
             display: block;
         }
+        
+        /* Dark Theme Comments Section Layout */
+        .comments-section {
+            max-width: 800px;
+            width: 90%;
+            margin: 40px auto;
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #333;
+        }
+
         footer {
             margin: 40px 0;
             text-align: center;
@@ -60,64 +106,124 @@
 </head>
 <body>
 
-    <header>
+    <header onclick="showMenu()">
         <h1>Prince Of Darkness</h1>
-        <h2>Chapter 1: oneshot part 1</h2>
+        <h2 id="current-view-title">Chapter Selection</h2>
     </header>
 
-    <div class="navigation">
-        <a href="#" class="btn">Prev Chapter</a>
-        <a href="#" class="btn">Next Chapter</a>
+    <div id="menu-view" class="chapter-menu">
+        <a href="#" class="chapter-link" onclick="openChapter('chapter1', 'Chapter 1: oneshot part 1')">
+            <span>Chapter 1: oneshot part 1</span>
+            <span style="color: #666;">&rarr;</span>
+        </a>
     </div>
 
-    <!-- Replace the src URLs below with your actual uploaded manga image paths -->
-    <div class="manga-container">
-       <img src="https://i.ibb.co/CpT5ZDKt/00.png" alt="00" border="0"></a> 
-       <img src="https://i.ibb.co/cXQRFSXq/01.png" alt="01" border="0"></a>
-       <img src="https://i.ibb.co/JwNphygS/02.png" alt="02" border="0"></a>
-       <img src="https://i.ibb.co/Xr6hW0pd/03.png" alt="03" border="0"></a>
-       <img src="https://i.ibb.co/zV9MVVXx/04.png" alt="04" border="0"></a>
-       <img src="https://i.ibb.co/GQqdnRFB/05.png" alt="05" border="0"></a>
-       <img src="https://i.ibb.co/ynX6Fwj0/06.png" alt="06" border="0"></a>
-       <img src="https://i.ibb.co/20BW8Bgj/07.png" alt="07" border="0"></a>
-       <img src="https://i.ibb.co/gLtRH4vC/08.png" alt="08" border="0"></a>
-       <img src="https://i.ibb.co/xtSzV4yR/09.png" alt="09" border="0"></a>
-       <img src="https://i.ibb.co/gL2hmKwJ/10.png" alt="10" border="0"></a>
-       <img src="https://i.ibb.co/9mPHKDLX/11.png" alt="11" border="0"></a>
-       <img src="https://i.ibb.co/gb96tGsG/12.png" alt="12" border="0"></a>
-       <img src="https://i.ibb.co/678NzQvy/13.png" alt="13" border="0"></a>
-       <img src="https://i.ibb.co/PztHJ95H/14.png" alt="14" border="0"></a>
-       <img src="https://i.ibb.co/fYV2SL2t/15.png" alt="15" border="0"></a>
-       <img src="https://i.ibb.co/nsmvmN6j/16.png" alt="16" border="0"></a>
-       <img src="https://i.ibb.co/xqM8TVpz/17.png" alt="17" border="0"></a>
-       <img src="https://i.ibb.co/dsGgz6dJ/18.png" alt="18" border="0"></a>
-       <img src="https://i.ibb.co/7d57K0tq/19.png" alt="19" border="0"></a>
-       <img src="https://i.ibb.co/chTYrgBy/20.png" alt="20" border="0"></a>
-       <img src="https://i.ibb.co/HT1347rh/21.png" alt="21" border="0"></a>
-       <img src="https://i.ibb.co/1GbdRM63/22.png" alt="22" border="0"></a>
-       <img src="https://i.ibb.co/0pX4P3nv/23.png" alt="23" border="0"></a>
-       <img src="https://i.ibb.co/rfzPFXL9/24.png" alt="24" border="0"></a>
-       <img src="https://i.ibb.co/4nC2kSPs/25.png" alt="25" border="0"></a>
-       <img src="https://i.ibb.co/My5v0ykS/26.png" alt="26" border="0"></a>
-       <img src="https://i.ibb.co/TqtY7HD8/27.png" alt="27" border="0"></a>
-       <img src="https://i.ibb.co/nWjMbZ7/28.png" alt="28" border="0"></a>
-       <img src="https://i.ibb.co/d03RNGMM/29.png" alt="29" border="0"></a>
-       <img src="https://i.ibb.co/0y9xxLWp/30.png" alt="30" border="0"></a>
-       <img src="https://i.ibb.co/Pv0S62t8/31.png" alt="31" border="0"></a>
-       <img src="https://i.ibb.co/Rk3m6zNx/32.png" alt="32" border="0"></a>
-       <img src="https://i.ibb.co/kg01r7zS/33.png" alt="33" border="0"></a>
-       <img src="https://i.ibb.co/5gj1tRzL/34.png" alt="34" border="0"></a>
-       <img src="https://i.ibb.co/pjz2Hh2t/35.png" alt="35" border="0"></a>
-    </div>
+    <div id="reader-view" class="hidden">
+        <div class="navigation">
+            <button class="btn" onclick="showMenu()">Back to Menu</button>
+        </div>
 
-    <div class="navigation">
-        <a href="#" class="btn">Prev Chapter</a>
-        <a href="#" class="btn">Next Chapter</a>
+        <div id="chapter1" class="manga-container chapter-content hidden">
+            <img src="https://i.ibb.co/CpT5ZDKt/00.png" alt="00" border="0"></a> 
+            <img src="https://i.ibb.co/cXQRFSXq/01.png" alt="01" border="0"></a>
+            <img src="https://i.ibb.co/JwNphygS/02.png" alt="02" border="0"></a>
+            <img src="https://i.ibb.co/Xr6hW0pd/03.png" alt="03" border="0"></a>
+            <img src="https://i.ibb.co/zV9MVVXx/04.png" alt="04" border="0"></a>
+            <img src="https://i.ibb.co/GQqdnRFB/05.png" alt="05" border="0"></a>
+            <img src="https://i.ibb.co/ynX6Fwj0/06.png" alt="06" border="0"></a>
+            <img src="https://i.ibb.co/20BW8Bgj/07.png" alt="07" border="0"></a>
+            <img src="https://i.ibb.co/gLtRH4vC/08.png" alt="08" border="0"></a>
+            <img src="https://i.ibb.co/xtSzV4yR/09.png" alt="09" border="0"></a>
+            <img src="https://i.ibb.co/gL2hmKwJ/10.png" alt="10" border="0"></a>
+            <img src="https://i.ibb.co/9mPHKDLX/11.png" alt="11" border="0"></a>
+            <img src="https://i.ibb.co/gb96tGsG/12.png" alt="12" border="0"></a>
+            <img src="https://i.ibb.co/678NzQvy/13.png" alt="13" border="0"></a>
+            <img src="https://i.ibb.co/PztHJ95H/14.png" alt="14" border="0"></a>
+            <img src="https://i.ibb.co/fYV2SL2t/15.png" alt="15" border="0"></a>
+            <img src="https://i.ibb.co/nsmvmN6j/16.png" alt="16" border="0"></a>
+            <img src="https://i.ibb.co/xqM8TVpz/17.png" alt="17" border="0"></a>
+            <img src="https://i.ibb.co/dsGgz6dJ/18.png" alt="18" border="0"></a>
+            <img src="https://i.ibb.co/7d57K0tq/19.png" alt="19" border="0"></a>
+            <img src="https://i.ibb.co/chTYrgBy/20.png" alt="20" border="0"></a>
+            <img src="https://i.ibb.co/HT1347rh/21.png" alt="21" border="0"></a>
+            <img src="https://i.ibb.co/1GbdRM63/22.png" alt="22" border="0"></a>
+            <img src="https://i.ibb.co/0pX4P3nv/23.png" alt="23" border="0"></a>
+            <img src="https://i.ibb.co/rfzPFXL9/24.png" alt="24" border="0"></a>
+            <img src="https://i.ibb.co/4nC2kSPs/25.png" alt="25" border="0"></a>
+            <img src="https://i.ibb.co/My5v0ykS/26.png" alt="26" border="0"></a>
+            <img src="https://i.ibb.co/TqtY7HD8/27.png" alt="27" border="0"></a>
+            <img src="https://i.ibb.co/nWjMbZ7/28.png" alt="28" border="0"></a>
+            <img src="https://i.ibb.co/d03RNGMM/29.png" alt="29" border="0"></a>
+            <img src="https://i.ibb.co/0y9xxLWp/30.png" alt="30" border="0"></a>
+            <img src="https://i.ibb.co/Pv0S62t8/31.png" alt="31" border="0"></a>
+            <img src="https://i.ibb.co/Rk3m6zNx/32.png" alt="32" border="0"></a>
+            <img src="https://i.ibb.co/kg01r7zS/33.png" alt="33" border="0"></a>
+            <img src="https://i.ibb.co/5gj1tRzL/34.png" alt="34" border="0"></a>
+            <img src="https://i.ibb.co/pjz2Hh2t/35.png" alt="35" border="0"></a>
+        </div>
+
+        <div class="navigation">
+            <button class="btn" onclick="showMenu()">Back to Menu</button>
+        </div>
+
+        <div class="comments-section">
+            <div id="cusdis_thread"
+              data-host="https://cusdis.com"
+              data-app-id="e2a8b864-e005-4be3-87a9-9f25d5d358a7"
+              data-page-id="main-page"
+              data-page-url=""
+              data-page-title="Chapter Selection"
+              data-theme="dark">
+            </div>
+        </div>
     </div>
 
     <footer>
         <p>&copy; 2026 Youssef Haddad. All Rights Reserved.</p>
     </footer>
 
+    <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+
+    <script>
+        function openChapter(chapterId, chapterTitle) {
+            document.getElementById('menu-view').classList.add('hidden');
+            document.getElementById('reader-view').classList.remove('hidden');
+            
+            const contents = document.querySelectorAll('.chapter-content');
+            contents.forEach(content => content.classList.add('hidden'));
+            
+            document.getElementById(chapterId).classList.remove('hidden');
+            document.getElementById('current-view-title').innerText = chapterTitle;
+            
+            window.scrollTo({top: 0, behavior: 'smooth'});
+
+            // Dynamically reload the comments box specifically for this chapter
+            if (window.CUSDIS) {
+                window.CUSDIS.renderTo(document.getElementById('cusdis_thread'), {
+                    pageId: chapterId,
+                    pageUrl: window.location.href + '#' + chapterId,
+                    pageTitle: chapterTitle
+                });
+            }
+        }
+
+        function showMenu() {
+            document.getElementById('reader-view').classList.add('hidden');
+            document.getElementById('menu-view').classList.remove('hidden');
+            document.getElementById('current-view-title').innerText = "Chapter Selection";
+            
+            // Switch comments thread back to main page context
+            if (window.CUSDIS) {
+                window.CUSDIS.renderTo(document.getElementById('cusdis_thread'), {
+                    pageId: 'main-page',
+                    pageUrl: window.location.href,
+                    pageTitle: 'Main Menu'
+                });
+            }
+        }
+
+        // Set initial page URL properties for comments on load
+        document.getElementById('cusdis_thread').setAttribute('data-page-url', window.location.href);
+    </script>
 </body>
 </html>
